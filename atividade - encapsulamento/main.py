@@ -1,47 +1,11 @@
-class bombaCombustivel:
-    def __init__(self, tipoCombustivel, valorLitro, quantidadeCombustivel):
-        self.__tipoCombustivel = tipoCombustivel
-        self.__valorLitro = valorLitro
-        self.__quantidadeCombustivel = quantidadeCombustivel
+from classes import bombaCombustivel, Veiculo
 
-    def abastecerPorValor(self, valor):
-        litros = valor/self.__valorLitro
-        print(f"Você abasteceu R${valor:.2f}, o que equivale a {litros:.2f} litros.")
-        self.__quantidadeCombustivel -= litros
-        return litros
-    
-    def abastecerPorLitro(self, litros):
-        valor = self.__valorLitro * litros
-        print(f"Você abasteceu R$'{valor:.2f}, o que equivale a {litros} litros.")
-        self.__quantidadeCombustivel -= litros
-        return valor
-    
-    def get_tipoCombustivel(self):
-        return self.__tipoCombustivel
-    
-    def get_valorLitro(self):
-        return self.__valorLitro
-    
-    def get_quantidadeCombustivel(self):
-        return self.__quantidadeCombustivel
-    
-    def set_alterarValor(self, valor):
-        self.__valorLitro = valor
-
-    def set_alterarCombustivel(self, combustivel):
-        self.__tipoCombustivel = combustivel
-
-    def set_alterarQuantidadeCombustivel(self, quantidade):
-        self.__quantidadeCombustivel = quantidade 
-           
-
-ipiranga = bombaCombustivel("comum", 6.3, 1000)
-
-print(ipiranga.get_quantidadeCombustivel())
-print(ipiranga.get_tipoCombustivel())
-print(ipiranga.get_valorLitro())
-ipiranga.abastecerPorLitro(5)
-ipiranga.abastecerPorValor(50)
-print(ipiranga.get_quantidadeCombustivel())
-print(ipiranga.get_tipoCombustivel())
-print(ipiranga.get_valorLitro())
+print("Testando Bomba de Combustível e Veículo")
+bomba = bombaCombustivel("Gasolina", 5.50, 200)
+veiculo = Veiculo("Fusca", "Gasolina", 50)
+# combustivel disponivel na bomba
+print(f"Combustível disponível na bomba: {bomba.get_quantidadeCombustivel()} litros")
+# Abastecendo por valor
+veiculo.abastecerVeiculoPV(bomba, 100)
+print(f"Combustível no veículo após abastecimento por valor: {veiculo.nivelCombustivel:.2f} litros")
+print(f"Combustível restante na bomba: {bomba.get_quantidadeCombustivel():.2f} litros")
