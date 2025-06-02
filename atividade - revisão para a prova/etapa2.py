@@ -1,4 +1,4 @@
-from livro import Livro
+from classes import Livro
 
 livro1 = Livro("A Metamorfose", "Franz Kafka", 1915)
 livro2 = Livro("Noites Brancas", "Fiódor Dostoiévski", 1848)
